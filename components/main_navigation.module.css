@@ -1,0 +1,15 @@
+.main_navigation_menu {
+  position: fixed;
+  top: 32%;
+  left: 60%;
+  right: 0;
+  font-size: 5.5vmin;
+  line-height: 1.6;
+  z-index: 2;
+}
+
+@media (min-aspect-ratio: 3/5) {
+  .main_navigation_menu {
+    left: 55%;
+  }
+}

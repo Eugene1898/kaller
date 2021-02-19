@@ -1,0 +1,40 @@
+* {
+    font-size: 100%;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    text-decoration: none;
+    color: inherit;
+    font-family: lemonde-journal, serif;
+}
+
+h1 {
+  font-weight: 900;
+  letter-spacing: -0.1rem;
+  font-size: 14vmin;
+  text-align: center;
+  line-height: 3;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 7vmin;
+  line-height: 1;
+  letter-spacing: -0.05rem;
+}
+
+h4 {
+  font-weight: 900;
+  line-height: 1.4;
+  font-size: 4vmin;
+  color: gray;
+}
+
+li {
+  list-style-type: none;
+}
+
+p {
+  margin-bottom: 4vmin;
+}

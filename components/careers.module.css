@@ -1,0 +1,20 @@
+.careers_container {
+  width: 61.8%;
+  padding: 0 19.1%;
+}
+
+.careers_leed {
+  font-size: 5vmin;
+}
+
+.careers_positions {
+  margin-top: 10vmin;
+}
+
+.careers_logo {
+  width: 12vmin;
+  position: absolute;
+  left: 3vmin;
+  top: 3vmin;
+  z-index: 2;
+}

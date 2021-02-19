@@ -1,0 +1,25 @@
+.office_title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 30vmin;
+  color: white;
+  z-index: 2;
+}
+
+.office_logo {
+  position: absolute;
+  left: calc(50% - 10vmin);
+  bottom: 20vmin;
+  width: 20vmin;
+  z-index: 2;
+}
+
+@media (min-aspect-ratio: 3/5) {
+  .office_logo {
+    width: 12vmin;
+    left: calc(50% - 6vmin);
+    bottom: 10vmin;
+  }
+}

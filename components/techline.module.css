@@ -1,0 +1,17 @@
+.techline_container {
+  width: 84%;
+  margin: 0 auto;
+}
+
+.techline_logo {
+  position: absolute;
+  top: 3.3vmin;
+  right: -7vmin;
+  width: 14vmin;
+  z-index: 2;
+}
+
+.techline_techs {
+  position: relative;
+  margin: 10vmin 7vmin 0 0;
+}
