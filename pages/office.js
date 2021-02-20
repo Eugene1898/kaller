@@ -87,6 +87,7 @@ export default function Tech() {
     <Layout>
       <Head>
         <title>Kaller office</title>
+        <script type="text/javascript" src="/js/window-height.js"></script>
       </Head>
       <h1 className={styles.office_title}>Office</h1>
       <div className={styles.office_logo}>

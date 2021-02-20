@@ -35,8 +35,8 @@
 
 @media (min-aspect-ratio: 3/5) {
   .index_title {
-    font-size: 20vmin;
-    margin-bottom: -4.7vmin;
+    font-size: 18vmin;
+    margin-bottom: -4vmin;
   }
 }
 
@@ -51,7 +51,7 @@
   .index_leed {
     font-size: 3vmin;
     margin: 0;
-    margin-left: calc(50% - 25vmin)
+    margin-left: calc(50% - 23.5vmin)
   }
 }
 
@@ -65,7 +65,7 @@
 
 @media (min-aspect-ratio: 3/5) {
   .index_logo {
-    width: 16vmin;
+    width: 13vmin;
     left: 55%;
     top: 70%;
   }

@@ -11,5 +11,6 @@
 @media (min-aspect-ratio: 3/5) {
   .main_navigation_menu {
     left: 55%;
+    font-size: 4vmin; 
   }
 }

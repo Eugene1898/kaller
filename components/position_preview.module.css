@@ -8,3 +8,24 @@
   margin-bottom: 2.5vmin;
   font-size: 5vmin;
 }
+
+@media (min-aspect-ratio: 3/5) {
+  .position_detail {
+    margin-bottom: 1vmin;
+    font-size: 3.5vmin;
+  }
+}
+
+.position_name {
+  margin-bottom: 2.5vmin;
+  font-size: 5vmin;
+  font-weight: 900;
+}
+
+@media (min-aspect-ratio: 3/5) {
+  .position_name {
+    margin-bottom: 1vmin;
+    font-size: 3.5vmin;
+    font-weight: 900;
+  }
+}

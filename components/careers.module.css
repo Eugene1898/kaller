@@ -5,6 +5,13 @@
 
 .careers_leed {
   font-size: 5vmin;
+  line-height: 1.4;
+}
+
+@media (min-aspect-ratio: 3/5) {
+  .careers_leed {
+    font-size: 3vmin;
+  }
 }
 
 .careers_positions {
@@ -17,4 +24,10 @@
   left: 3vmin;
   top: 3vmin;
   z-index: 2;
+}
+
+@media (min-aspect-ratio: 3/5) {
+  .careers_logo {
+    width: 8vmin;
+  }
 }

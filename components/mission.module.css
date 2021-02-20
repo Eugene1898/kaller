@@ -21,11 +21,12 @@
 .mission_text {
   color: white;
   width: 61.8%;
-  font-size: 5.5vmin;
+  font-size: 6vmin;
   line-height: 1.3;
   z-index: 2;
   position: relative;
   margin: 0 auto;
+  text-shadow: 0 0 5px #000;
 }
 
 @media (min-aspect-ratio: 1/2) {
