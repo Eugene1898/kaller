@@ -29,7 +29,7 @@ export default function Tech() {
     }
   ]
 
-  const techs = items.map((item) => {
+  const techs = items.map((item, i) => {
       return (
         <TechlineItem
           props = {{
@@ -40,6 +40,7 @@ export default function Tech() {
             img_desc: item.img_desc,
             status: item.status
           }}
+          key = {i}
         />
       );
   });

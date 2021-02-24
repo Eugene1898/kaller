@@ -6,33 +6,31 @@ export default function MainNavigation() {
     {
       link: "tech",
       name: "Technologies",
-      key: "tech"
     },
     {
       link: "mission",
       name: "Mission",
-      key: "mission"
     },
     {
       link: "office",
       name: "Office",
-      key: "office"
     },
     {
       link: "careers",
       name: "Careers",
-      key: "careers"
     }
   ]
 
-  const links = items.map((link) => {
-      return (
-        <li>
-          <Link href={link.link}>
-            <a>{link.name}</a>
-          </Link>
-        </li>
-      );
+  const links = items.map((link, i) => {
+    return (
+      <li key={i}>
+        <Link
+          href={"/" + link.link}
+        >
+          <a>{link.name}</a>
+        </Link>
+      </li>
+    );
   });
 
   return (

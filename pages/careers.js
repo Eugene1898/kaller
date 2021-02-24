@@ -25,7 +25,7 @@ export default function Careers() {
     }
   ]
 
-  const positions = items.map((item) => {
+  const positions = items.map((item, i) => {
     return (
       <PositionPreview
         props = {{
@@ -33,6 +33,7 @@ export default function Careers() {
           type: item.type,
           pid: item.pid
         }}
+        key = {i}
       />
     );
   });

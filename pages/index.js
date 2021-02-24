@@ -28,6 +28,7 @@ export default function Home() {
           src="/images/israel.jpg"
           layout="fill"
           objectFit="cover"
+          objectPosition="center top"
         />
       </div>
     </Layout>

@@ -31,6 +31,7 @@ export default function Mission() {
             src="/images/new-york.jpg"
             layout="fill"
             objectFit="cover"
+            objectPosition="center top"
           />
         </div>
       </div>
