@@ -1,6 +1,7 @@
-import styles from './position_preview.module.css'
+import styles from './position_item.module.css'
 
-export default function PositionPreview({ props }) {
+function PositionPreview({ props }) {
+
   return (
     <div className={styles.position_container}>
       <h4>Job title</h4>
@@ -8,5 +9,7 @@ export default function PositionPreview({ props }) {
       <h4>Employment Type</h4>
       <p className={styles.position_detail}>{props.type}</p>
     </div>
-  )
+  );
 }
+
+export default PositionPreview

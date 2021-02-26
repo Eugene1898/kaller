@@ -12,37 +12,19 @@ import {
   CarouselIndicators
 } from 'reactstrap';
 
-const items = [
-  {
-    src: '/images/office-1.jpeg',
-    altText: 'Kaller office. Hall',
-    caption: 'Kaller office. Hall'
-  },
-  {
-    src: '/images/office-2.jpeg',
-    altText: 'Kaller office. Tardis',
-    caption: 'Kaller office. Tardis'
-  },
-  {
-    src: '/images/office-3.jpeg',
-    altText: 'Kaller office. Android',
-    caption: 'Kaller office. Android'
-  }
-];
-
-const OfficeCarousel = (props) => {
+const OfficeCarousel = ( data ) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex = activeIndex === data.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   }
 
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    const nextIndex = activeIndex === 0 ? data.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   }
 
@@ -51,16 +33,16 @@ const OfficeCarousel = (props) => {
     setActiveIndex(newIndex);
   }
 
-  const slides = items.map((item) => {
+  const slides = data.map((item) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={item.nid}
       >
         <Image
-          src={item.src}
-          alt={item.altText}
+          src={item.image}
+          alt={item.alt}
           layout='fill'
           objectFit="cover"
         />
@@ -74,7 +56,7 @@ const OfficeCarousel = (props) => {
       next={next}
       previous={previous}
     >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      <CarouselIndicators items={data} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
@@ -82,7 +64,7 @@ const OfficeCarousel = (props) => {
   );
 }
 
-export default function Tech() {
+function Office({ data }) {
   return (
     <Layout>
       <Head>
@@ -95,7 +77,15 @@ export default function Tech() {
           <a><Logo /></a>
         </Link>
       </div>
-      {OfficeCarousel()}
+      {OfficeCarousel( data )}
     </Layout>
   )
 }
+
+export async function getServerSideProps() {
+  const res = await fetch(process.env.cms + `/get-office`)
+  const data = await res.json()
+  return { props: { data } }
+}
+
+export default Office

@@ -4,46 +4,25 @@ import Link from 'next/link'
 import Logo from '../components/logo'
 import Layout from '../components/layout'
 import styles from '../components/careers.module.css'
-import PositionPreview from '../components/position_preview'
+import PositionItem from '../components/position_item'
 
-export default function Careers() {
-  const items = [
-    {
-      title: "Change Engineer",
-      type: "Full-Time",
-      pid: "1"
-    },
-    {
-      title: "Apllication Development Specialist",
-      type: "Temporary",
-      pid: "2"
-    },
-    {
-      title: "Senior Accountant",
-      type: "Remote",
-      pid: "3"
-    }
-  ]
+function Careers ({ data, positions }) {
 
-  const positions = items.map((item, i) => {
+  const positionList = positions.map((item) => {
     return (
-      <PositionPreview
-        props = {{
-          title: item.title,
-          type: item.type,
-          pid: item.pid
-        }}
-        key = {i}
+      <PositionItem
+        props = {item}
+        key = {item.nid}
       />
-    );
-  });
+    )
+  })
 
   return (
     <Layout>
       <Head>
-        <title>Kaller careers</title>
+        <title>{data.title}</title>
       </Head>
-      <h1>Careers</h1>
+      <h1>{data.title}</h1>
       <div className={styles.careers_logo}>
         <Link href="/">
           <a><Logo /></a>
@@ -51,14 +30,27 @@ export default function Careers() {
       </div>
       <div className={styles.careers_container}>
         <p className={styles.careers_leed}>
-            Kaller ищет таланты, готовые взяться за сложные задачи на переднем
-            крае IT. Мы предлагаем конкуретноспособную заработную плату,
-            комфортные условия труда и отличное техническое оснащение.
+            {data.body}
         </p>
-        <p className={styles.careers_leed}>Email для связи: <a href="mailto:hr@kaller.io">hr@kaller.io</a></p>
+        <p className={styles.careers_leed}>Email: <a href="mailto:hr@kaller.io">hr@kaller.io</a></p>
         <h2 className={styles.careers_positions}>Open position</h2>
-        {positions}
+        {positionList}
       </div>
     </Layout>
   )
 }
+
+export async function getStaticProps() {
+  const res1 = await fetch(process.env.cms + `/get-node?nid=8`)
+  const data = await res1.json()
+  const res2 = await fetch(process.env.cms + `/get-positions`)
+  const positions = await res2.json()
+  return {
+    props: {
+      data,
+      positions
+    }
+  }
+}
+
+export default Careers

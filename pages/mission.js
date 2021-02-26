@@ -6,23 +6,21 @@ import Logo from '../components/logo'
 import styles from '../components/mission.module.css'
 import stylesBG from '../components/index.module.css'
 
-export default function Mission() {
+function Mission({ data }) {
   return (
     <Layout>
       <Head>
-        <title>Kaller mission</title>
+        <title>{data.title}</title>
       </Head>
       <div className={styles.mission_bg}>
-        <h1 className={styles.mission_title}>Mission</h1>
+        <h1 className={styles.mission_title}>{data.title}</h1>
         <div className={styles.mission_logo}>
           <Link href="/">
             <a><Logo /></a>
           </Link>
         </div>
         <p className={styles.mission_text}>
-          Мы создаем технологию, которая выведет традиционные бизнес-коммуникации
-          на новый качественный уровень, предоставляя уровень сервиса крупного бизнеса для
-          каждого пользователя в его смартфоне.
+          {data.body}
         </p>
         <h2 className={styles.mission_subtitle}>Team</h2>
         <div className={stylesBG.index_bg}>
@@ -38,3 +36,11 @@ export default function Mission() {
     </Layout>
   )
 }
+
+export async function getServerSideProps() {
+  const res = await fetch(process.env.cms + `/get-node?nid=4`)
+  const data = await res.json()
+  return { props: { data } }
+}
+
+export default Mission
