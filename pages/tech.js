@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Layout from '../components/layout'
+import { motion } from 'framer-motion';
+
 import styles from '../components/tech.module.css'
 import Logo from '../components/logo'
 import Techline from '../components/techline'
@@ -10,6 +11,7 @@ function Tech({ data }) {
   const techsSorted = data.sort((a, b) => b.status - a.status)
 
   const techs = techsSorted.map((item, i) => {
+      item.i = i
       return (
         <TechlineItem
           props = {item}
@@ -19,15 +21,15 @@ function Tech({ data }) {
   });
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Kaller technologies</title>
       </Head>
-      <h1>Technologies</h1>
+      <motion.h1 layoutId="title">Technologies</motion.h1>
       <Techline>
         {techs}
       </Techline>
-    </Layout>
+    </>
   )
 }
 

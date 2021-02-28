@@ -3,6 +3,6 @@ module.exports = {
     domains: ['kaller.local', 'localhost', 'zanevski.xyz'],
   },
   env: {
-    cms: 'https://zanevski.xyz',
+    cms: 'http://zanevski.xyz',
   }
 }

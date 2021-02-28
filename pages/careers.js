@@ -1,14 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion';
+
 import Logo from '../components/logo'
-import Layout from '../components/layout'
 import styles from '../components/careers.module.css'
 import PositionItem from '../components/position_item'
 
 function Careers ({ data, positions }) {
 
-  const positionList = positions.map((item) => {
+  const positionList = positions.map((item, i) => {
+    item.i = i
     return (
       <PositionItem
         props = {item}
@@ -18,16 +20,19 @@ function Careers ({ data, positions }) {
   })
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{data.title}</title>
       </Head>
-      <h1>{data.title}</h1>
-      <div className={styles.careers_logo}>
+      <motion.h1 layoutId="title">{data.title}</motion.h1>
+      <motion.div
+        className={styles.careers_logo}
+        layoutId="logo"
+      >
         <Link href="/">
           <a><Logo /></a>
         </Link>
-      </div>
+      </motion.div>
       <div className={styles.careers_container}>
         <p className={styles.careers_leed}>
             {data.body}
@@ -36,7 +41,7 @@ function Careers ({ data, positions }) {
         <h2 className={styles.careers_positions}>Open position</h2>
         {positionList}
       </div>
-    </Layout>
+    </>
   )
 }
 

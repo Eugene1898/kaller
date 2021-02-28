@@ -1,5 +1,7 @@
-import styles from './main_navigation.module.css'
 import Link from 'next/link'
+import { motion } from 'framer-motion';
+
+import styles from './main_navigation.module.css'
 
 export default function MainNavigation() {
   const items = [
@@ -23,13 +25,17 @@ export default function MainNavigation() {
 
   const links = items.map((link, i) => {
     return (
-      <li key={i}>
+      <motion.li
+        key={i}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.98 }}
+      >
         <Link
           href={"/" + link.link}
         >
           <a>{link.name}</a>
         </Link>
-      </li>
+      </motion.li>
     );
   });
 

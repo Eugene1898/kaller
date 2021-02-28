@@ -1,9 +1,7 @@
 import Head from 'next/head'
-import styles from '../components/office.module.css'
-import Layout from '../components/layout'
-import Logo from '../components/logo'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import {
   Carousel,
@@ -11,6 +9,9 @@ import {
   CarouselControl,
   CarouselIndicators
 } from 'reactstrap';
+
+import styles from '../components/office.module.css'
+import Logo from '../components/logo'
 
 const OfficeCarousel = ( data ) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -66,19 +67,27 @@ const OfficeCarousel = ( data ) => {
 
 function Office({ data }) {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Kaller office</title>
         <script type="text/javascript" src="/js/mobile-height.js"></script>
       </Head>
-      <h1 className={styles.office_title}>Office</h1>
-      <div className={styles.office_logo}>
-        <Link href="/">
+      <motion.h1
+        className={styles.office_title}
+        layoutId="title"
+      >
+        Office
+      </motion.h1>
+      <motion.div
+        className={styles.office_logo}
+        layoutId="logo"
+      >
+        <Link href="careers">
           <a><Logo /></a>
         </Link>
-      </div>
+      </motion.div>
       {OfficeCarousel( data )}
-    </Layout>
+    </>
   )
 }
 
